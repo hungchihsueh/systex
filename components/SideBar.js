@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import NavButton from "./sidebar/NavButton";
 import NavLists from "./sidebar/NavLists";
 import Image from "next/image";
-import "../../styles/sidebar.module.css"
 const SideBar = () => {
     const [activeTab, setActiveTab] = useState("首頁");
     const [homeList, setHomeList] = useState([
