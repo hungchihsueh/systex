@@ -67,12 +67,29 @@ const SideBar = () => {
          isActive: false,
        },
      ]);
+     const [programList, setProgramList] = useState([
+       {
+         name: "14064-1 2006",
+         img: "doc.svg",
+         isActive: true,
+       },
+       {
+         name: "14064-1 2018",
+         img: "doc.svg",
+         isActive: false,
+       },
+       {
+         name: "環保署清冊",
+         img: "calendar.svg",
+         isActive: false,
+       },
+     ]);
   const handleNavButtonClick = (e) => {
     console.log(e);
     setActiveTab(e);
   };
   return (
-    <div className="bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl overflow-y-scroll">
+    <div className="bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl">
       <div className="text-white text-center font-bold mb-10">LOGO</div>
       <div className="grid grid-cols-1 h-4/5">
         <NavButton
@@ -102,15 +119,20 @@ const SideBar = () => {
           isActive={activeTab == "程序清冊"}
           handleNavButtonClick={handleNavButtonClick}
         />
+        <NavLists list={programList} isActive={activeTab == "程序清冊"} />
         <NavButton
           name="權限管理"
           img="權限管理.svg"
           isActive={activeTab == "權限管理"}
           handleNavButtonClick={handleNavButtonClick}
         />
-      <button className="py-10">
-        <Image src="/nav-img/logout.svg" alt="" height="24" width="24"></Image>
-      </button>
+        <button className="py-10">
+          <Image
+            src="/nav-img/logout.svg"
+            alt=""
+            height="24"
+            width="24"></Image>
+        </button>
       </div>
     </div>
   );
