@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import NavButton from "./sidebar/NavButton";
+import NavLists from "./sidebar/NavLists";
 import Image from "next/image";
 const SideBar = () => {
     const [activeTab, setActiveTab] = useState("首頁");
-    const handleNavButtonClick = (e) => {
-        console.log(e)
-        setActiveTab(e)
-    }
+    const [homeList, setHomeList] = useState([
+      { name: "媒體公告", img: "/nav-img/媒體公告.svg", isActive: true },
+      { name: "數據分析", img: "/nav-img/數據分析.svg", isActive: false },
+    ]);
+  const handleNavButtonClick = (e) => {
+    console.log(e);
+    setActiveTab(e);
+  };
   return (
     <div className="bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl">
       <div className="text-white text-center font-bold mb-10">LOGO</div>
@@ -17,6 +22,7 @@ const SideBar = () => {
           isActive={activeTab == "首頁"}
           handleNavButtonClick={handleNavButtonClick}
         />
+        <NavLists/>
         <NavButton
           name="基本設定"
           img="基本設定.svg"
