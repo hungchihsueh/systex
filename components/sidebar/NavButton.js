@@ -1,11 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 import Image from "next/image";
+import { DashboardContext } from "../../pages";
 const NavButton = ({
   name,
   img,
   isActive,
-  handleNavButtonClick
 }) => {
+    const { setActiveTab } = useContext(DashboardContext);
   return (
     <div className="relative w-full h-fit transition-all duration-300">
       {/*  active外部圓角  */}
@@ -24,7 +25,7 @@ const NavButton = ({
       {/*  active外部圓角  */}
       <button
         type="button"
-        onClick={() => handleNavButtonClick(`${name}`)}
+        onClick={() => setActiveTab(`${name}`)}
         className={
           isActive
             ? `text-[#4DA7B0] bg-[#E5F9F5] rounded-l-full text-2xl font-medium w-full py-3 px-2 flex justify-between items-center`
@@ -68,10 +69,9 @@ const NavButton = ({
             ? "h-3 w-3 bg-[#E5F9F5] absolute right-0 top-full  opacity-100"
             : "hidden"
         }></div>
-          {/*  active外部圓角  */}
-          {/* 選單列表 */}
+      {/*  active外部圓角  */}
+      {/* 選單列表 */}
     </div>
-    
   );
 };
 
