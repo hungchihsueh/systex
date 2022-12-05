@@ -6,7 +6,7 @@ const NavLists = ({ list,isActive }) => {
     <div
       className={
         isActive
-          ? "my-5 pl-5 flex flex-col items-start h-[150px] overflow-y-scroll"
+          ? "my-5 pl-5 flex flex-col items-start h-[147px] max-h-[fit-content]  overflow-y-scroll"
           : "hidden"
       }>
       {list.map((item) => {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavButton from "./sidebar/NavButton";
 import NavLists from "./sidebar/NavLists";
 import Image from "next/image";
+import "../../styles/sidebar.module.css"
 const SideBar = () => {
     const [activeTab, setActiveTab] = useState("首頁");
     const [homeList, setHomeList] = useState([
@@ -84,12 +85,21 @@ const SideBar = () => {
          isActive: false,
        },
      ]);
+     const [authList, setAuthList] = useState([
+       { name: "角色管理", img: "角色管理.svg", isActive: true },
+       { name: "帳號管理", img: "帳號管理.svg", isActive: false },
+     ]);
+     const [messageList, setMessageList] = useState([
+       { name: "廣告管理設定", img: "廣告管理設定.svg", isActive: true },
+       { name: "最新消息設定", img: "最新消息設定.svg", isActive: false },
+     ]);
+    
   const handleNavButtonClick = (e) => {
     console.log(e);
     setActiveTab(e);
   };
   return (
-    <div className="bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl">
+    <div className="sidebar bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl overflow-y-scroll">
       <div className="text-white text-center font-bold mb-10">LOGO</div>
       <div className="grid grid-cols-1 h-4/5">
         <NavButton
@@ -126,7 +136,15 @@ const SideBar = () => {
           isActive={activeTab == "權限管理"}
           handleNavButtonClick={handleNavButtonClick}
         />
-        <button className="py-10">
+        <NavLists list={authList} isActive={activeTab == "權限管理"} />
+        <NavButton
+          name="消息管理"
+          img="消息管理.svg"
+          isActive={activeTab == "消息管理"}
+          handleNavButtonClick={handleNavButtonClick}
+        />
+        <NavLists list={messageList} isActive={activeTab == "消息管理"} />
+        <button className=" pt-5 pb-10">
           <Image
             src="/nav-img/logout.svg"
             alt=""
