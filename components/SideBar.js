@@ -6,92 +6,91 @@ import Image from "next/image";
 const SideBar = () => {
   const { activeTab } = useContext(DashboardContext);
   const [homeList, setHomeList] = useState([
-    { name: "媒體公告", img: "媒體公告.svg", isActive: true },
-    { name: "數據分析", img: "數據分析.svg", isActive: false },
+    { name: "媒體公告", img: "媒體公告.svg"},
+    { name: "數據分析", img: "數據分析.svg"},
   ]);
   const [basicList, setBasicList] = useState([
     {
       name: "集團管理設定",
       img: "集團管理設定.svg",
-      isActive: true,
+
     },
     {
       name: "盤查據點管理",
       img: "盤查據點管理.svg",
-      isActive: false,
+ 
     },
     {
       name: "係數管理設定",
       img: "係數管理設定.svg",
-      isActive: false,
+  
     },
   ]);
   const [fillList, setFillList] = useState([
     {
       name: "排放源鑑別",
       img: "排放源鑑別.svg",
-      isActive: true,
     },
     {
       name: "重大性鑑別",
       img: "重大性鑑別.svg",
-      isActive: false,
+     
     },
     {
       name: "類別一",
       img: "類別一.svg",
-      isActive: false,
+    
     },
     {
       name: "類別二",
       img: "類別二.svg",
-      isActive: false,
+     
     },
     {
       name: "類別三",
       img: "類別三.svg",
-      isActive: false,
+ 
     },
     {
       name: "類別四",
       img: "類別四.svg",
-      isActive: false,
+
     },
     {
       name: "類別五",
       img: "類別五.svg",
-      isActive: false,
+     
     },
     {
       name: "類別六",
       img: "類別六.svg",
-      isActive: false,
+
     },
   ]);
   const [programList, setProgramList] = useState([
     {
       name: "14064-1 2006",
       img: "doc.svg",
-      isActive: true,
+    
     },
     {
       name: "14064-1 2018",
       img: "doc.svg",
-      isActive: false,
+
     },
     {
       name: "環保署清冊",
       img: "calendar.svg",
-      isActive: false,
+ 
     },
   ]);
   const [authList, setAuthList] = useState([
-    { name: "角色管理", img: "角色管理.svg", isActive: true },
-    { name: "帳號管理", img: "帳號管理.svg", isActive: false },
+    { name: "角色管理", img: "角色管理.svg",},
+    { name: "帳號管理", img: "帳號管理.svg",  },
   ]);
   const [messageList, setMessageList] = useState([
-    { name: "廣告管理設定", img: "廣告管理設定.svg", isActive: true },
-    { name: "最新消息設定", img: "最新消息設定.svg", isActive: false },
+    { name: "廣告管理設定", img: "廣告管理設定.svg", },
+    { name: "最新消息設定", img: "最新消息設定.svg",},
   ]);
   return (
     <div className="sidebar bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl overflow-y-scroll">

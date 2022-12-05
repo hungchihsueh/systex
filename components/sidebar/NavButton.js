@@ -6,7 +6,7 @@ const NavButton = ({
   img,
   isActive,
 }) => {
-    const { setActiveTab } = useContext(DashboardContext);
+    const { setActiveTab, setActiveItem } = useContext(DashboardContext);
   return (
     <div className="relative w-full h-fit transition-all duration-300">
       {/*  active外部圓角  */}
@@ -25,7 +25,7 @@ const NavButton = ({
       {/*  active外部圓角  */}
       <button
         type="button"
-        onClick={() => setActiveTab(`${name}`)}
+        onClick={() => { setActiveTab(`${name}`);}}
         className={
           isActive
             ? `text-[#4DA7B0] bg-[#E5F9F5] rounded-l-full text-2xl font-medium w-full py-3 px-2 flex justify-between items-center`
