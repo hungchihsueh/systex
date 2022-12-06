@@ -18,5 +18,5 @@
 }
 
 .sidebar::-webkit-scrollbar {
-    width: 0em;
+    /* width: 5px; */
 }

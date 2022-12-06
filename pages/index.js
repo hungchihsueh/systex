@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
+import Layout from "../components/Layout";
 import SideBar from "../components/SideBar";
 import HeadBar from "../components/HeadBar";
-import Announcement from "../components/home/announcement";
+import MainComponent from "../components/MainComponent"
 
 export const DashboardContext = createContext(null);
 
@@ -11,8 +12,6 @@ export default function Home() {
   useEffect(() => {
   setActiveItem(0);
 }, [activeTab]);
-  useEffect(() => {
-  }, [activeItem]);
   return (
     <DashboardContext.Provider
       value={{
@@ -21,12 +20,9 @@ export default function Home() {
         activeItem,
         setActiveItem,
       }}>
-      <div className="mx-auto w-full max-w-[1900px] h-screen bg-[#E5F9F5] p-5 flex justify-start items-start gap-5">
-        <SideBar />
-        <div className="w-full h-full flex flex-col justify-start items-start gap-8">
-          <HeadBar />
-        </div>
-      </div>
+      <Layout>   
+            <MainComponent />  
+      </Layout>
     </DashboardContext.Provider>
   );
 }

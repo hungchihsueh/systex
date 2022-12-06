@@ -93,7 +93,7 @@ const SideBar = () => {
     { name: "最新消息設定", img: "最新消息設定.svg",},
   ]);
   return (
-    <div className="sidebar bg-[#4DA7B0] w-1/5 min-w-[276px] h-full pl-6 py-9 rounded-3xl overflow-y-scroll">
+    <div className="sidebar bg-[#4DA7B0] w-1/5 max-w-[300px] min-w-[276px] h-[calc(100vh-40px)] pl-6 py-9 rounded-3xl overflow-y-scroll sticky top-5">
       <div className="text-white text-center font-bold mb-10">LOGO</div>
       <div className="grid grid-cols-1 h-4/5">
         <NavButton
