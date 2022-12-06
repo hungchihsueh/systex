@@ -34,7 +34,7 @@ const login = () => {
           type="text"
           name="account"
           id="account"
-          className="w-full py-4 px-3 mb-9 rounded-md border border-[#ACC2C1]"
+          className="w-full py-4 px-3 mb-9 rounded-md border border-[#ACC2C1] placeholder:text-[#ACC2C1]"
         />
         <label
           className="mb-3 font-bold text-[#467980] text-2xl"
@@ -46,7 +46,7 @@ const login = () => {
           type="password"
           name="password"
           id="password"
-          className="w-full py-4 px-3 mb-9 rounded-md border border-[#ACC2C1]"
+          className="w-full py-4 px-3 mb-9 rounded-md border border-[#ACC2C1] placeholder:text-[#ACC2C1]"
         />
         <button className="w-full p-4 bg-gradient-to-b from-[#63C2CF] to-[#199694] font-bold text-white text-2xl rounded-md">
           登入
