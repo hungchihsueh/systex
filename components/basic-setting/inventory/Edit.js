@@ -171,11 +171,19 @@ const Edit = () => {
             <span className=" text-base font-medium text-red-500">*</span>
             盤查邊界地圖(廠區平面圖):
           </div>
-          <div className="text-sm text-red-500">(支援格式JPG、PDF檔案格式)</div>
-          <div className="flex justify-center items-center">
-                      <label htmlFor="floorPlan" className="flex flex-col justify-center items-center cursor-pointer">
-                         <Image alt=""/>         
-              <input type="file" name="floorPlan" id="floorPlan" className="hidden"/>
+          <div className="mb-6 text-sm text-red-500">(支援格式JPG、PDF檔案格式)</div>
+          <div className="flex justify-start items-center">
+            <label
+              htmlFor="floorPlan"
+              className="min-w-[100px] aspect-square flex flex-col justify-center items-center cursor-pointer border-2 border=[#BDBDBD] rounded-lg p-3">
+              <Image width={24} height={24} alt="" src={"/icon/doc-upload.svg"} className="mb-4"/>
+              <div className="text-center text-sm text-[#BDBDBD]">選擇<br/>上傳檔案</div>
+              <input
+                type="file"
+                name="floorPlan"
+                id="floorPlan"
+                className="hidden"
+              />
             </label>
           </div>
         </div>
