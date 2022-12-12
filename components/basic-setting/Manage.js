@@ -87,9 +87,9 @@ setting:1
   },
 ];
 const Manage = () => {
-  const [isEditing, setIsEditing] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
   return (
-    <div className="w-full h-full overflow-y-scroll rounded-xl bg-white/90 p-4">
+    <div className="">
       <div className="flex justify-between items-center mb-6">
         <div className=" w-full text-2xl font-black text-[#467980]">
           集團管理設計
@@ -105,42 +105,42 @@ const Manage = () => {
               <label
                 htmlFor="year"
                 className="text-md text-[#467980] font-medium whitespace-nowrap">
-                盤查年度：
+                盤查年度:
               </label>
               <input
                 type="text"
                 name="year"
                 id="year"
                 placeholder="請輸入公司名稱"
-                className=" px-3 py-2  border border-[#4DA7B0] rounded-lg"
+                className=" h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
               />
             </div>
             <div className="">
               <label
                 htmlFor="taxID"
                 className="text-md text-[#467980] font-medium whitespace-nowrap">
-                公司統編：
+                公司統編:
               </label>
               <input
                 type="text"
                 name="taxID"
                 id="taxID"
                 placeholder="請輸入統一編號"
-                className=" px-3 py-2 border border-[#4DA7B0] rounded-lg"
+                className=" h-9 px-3 py-2 border border-[#4DA7B0] rounded-lg"
               />
             </div>
             <div className="">
               <label
                 htmlFor="industry"
                 className="text-md text-[#467980] font-medium whitespace-nowrap">
-                產業別：
+                產業別:
               </label>
               <input
                 type="text"
                 name="industry"
                 id="industry"
                 placeholder="請輸入產業關鍵字"
-                className=" px-3 py-2  border border-[#4DA7B0] rounded-lg"
+                className=" h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
               />
             </div>
             <div className="flex justify-start items-center gap-1">
@@ -154,7 +154,11 @@ const Manage = () => {
                 />
                 查詢
               </button>
-              <button className="flex justify-center items-center rounded-xl bg-[#0075AC] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <button
+                className="flex justify-center items-center rounded-xl bg-[#0075AC] text-white text-md font-medium py-2 px-5 whitespace-nowrap"
+                onClick={() => {
+                  setIsEditing(true);
+                }}>
                 <Image
                   width={20}
                   height={20}
@@ -186,6 +190,7 @@ const Manage = () => {
                   display: "none",
                 },
                 "& .MuiDataGrid-cell": {
+                  width: "100%",
                   display: "flex",
                   justifyContent: "center",
                   textAlign: "center",

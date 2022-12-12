@@ -8,13 +8,13 @@ import Manage from "../components/basic-setting/Manage";
 const MainComponent = () => {
   const { activeTab, activeItem } = useContext(DashboardContext);
   return (
-    <>
+    <div className="w-full h-full overflow-y-scroll rounded-xl bg-white/90 p-4">
       {activeTab == "首頁" && activeItem == 0 && <Announcement />}
       {activeTab == "首頁" && activeItem == 1 && <Analysis />}
       {activeTab == "基本設定" && activeItem == 0 && <Manage />}
       {activeTab == "基本設定" && activeItem == 1 && <Inventory />}
       {activeTab == "基本設定" && activeItem == 2 && <Coefficent />}
-    </>
+    </div>
   );
 };
 

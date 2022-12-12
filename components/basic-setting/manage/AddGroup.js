@@ -107,79 +107,79 @@ const AddGroup = ({ isEditing, setIsEditing }) => {
       <div className={step == 1 ? "grid grid-cols-3 gap-5 w-full" : "hidden"}>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="companyName" className="mb-2">
-            <span className="text-red-500">*</span>公司名稱：
+            <span className="text-red-500">*</span>公司名稱:
           </label>
           <input
             id="companyName"
             name="companyName"
             type="text"
             placeholder="請輸入集團公司名稱"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="GUINumber" className="mb-2">
-            <span className="text-red-500">*</span>統一編號：
+            <span className="text-red-500">*</span>統一編號:
           </label>
           <input
             id="GUINumber"
             name="GUINumber"
             type="text"
             placeholder="請輸入集團公司統一編號"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="GUINumber" className="mb-2">
-            產業別：
+            產業別:
           </label>
           <input
             id="GUINumber"
             name="GUINumber"
             type="text"
             placeholder="請輸入集團產業別"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="manInCharge" className="mb-2">
-            <span className="text-red-500">*</span>公司負責人：
+            <span className="text-red-500">*</span>公司負責人:
           </label>
           <input
             id="manInCharge"
             name="manInCharge"
             type="text"
             placeholder="請輸入集團公司登記負責人"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="col-span-2 flex flex-col justify-start items-start">
           <label htmlFor="companyAddress" className="mb-2">
-            公司登記地址：
+            公司登記地址:
           </label>
           <input
             id="companyAddress"
             name="companyAddress"
             type="text"
             placeholder="請輸入請輸入公司登記地址"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="companyPhone" className="mb-2">
-            公司登記電話：
+            公司登記電話:
           </label>
           <input
             id="companyPhone"
             name="companyPhone"
             type="text"
             placeholder="請輸入集團公司登記電話"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="companyPopulation" className="mb-2">
-            公司規模(人數)：
+            公司規模(人數):
           </label>
           <select
             onChange={(e) => {
@@ -189,7 +189,7 @@ const AddGroup = ({ isEditing, setIsEditing }) => {
             id="companyPopulation"
             name="companyPopulation"
             placeholder=""
-            className={`w-full px-3 py-2  border border-[#4DA7B0] rounded-lg ${
+            className={`w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg ${
               population == "" && "text-[#BDBDBD]"
             }`}>
             <option value="">請輸入集團公司現規模人數</option>
@@ -202,66 +202,66 @@ const AddGroup = ({ isEditing, setIsEditing }) => {
       <div className={step == 2 ? "grid grid-cols-3 gap-5 w-full" : "hidden"}>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="placeName" className="mb-2">
-            公司據點名稱：
+            公司據點名稱:
           </label>
           <input
             id="placeName"
             name="placeName"
             type="text"
             placeholder="請輸入據點名稱"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="placeNo" className="mb-2">
-            公司據點編號：
+            公司據點編號:
           </label>
           <input
             id="placeNo"
             name="placeNo"
             type="text"
             placeholder="請輸入據點統一編號"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="companyAddress" className="mb-2">
-            公司登記地址：
+            公司登記地址:
           </label>
           <input
             id="companyAddress"
             name="companyAddress"
             type="text"
             placeholder="請輸入請輸入公司登記地址"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex flex-col justify-start items-start">
           <label htmlFor="checkYears" className="mb-2">
-            據點盤查年度：
+            據點盤查年度:
           </label>
         </div>
         <div className=" flex flex-col justify-start items-start">
           <label htmlFor="companyArea" className="mb-2">
-            樓地板面積：
+            樓地板面積:
           </label>
           <input
             id="companyArea"
             name="companyArea"
             type="text"
             placeholder="請輸入面積"
-            className="w-full px-3 py-2  border border-[#4DA7B0] rounded-lg"
+            className="w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg"
           />
         </div>
         <div className="flex justify-between items-end">
           <div className="w-4/5 flex flex-col justify-start items-start">
             <label htmlFor="GWP" className="mb-2">
-              GWP版本：
+              GWP版本:
             </label>
             <select
               name="GWP"
               id="GWP"
-              className={`w-full px-3 py-2  border border-[#4DA7B0] rounded-lg
+              className={`w-full h-9 px-3 py-2  border border-[#4DA7B0] rounded-lg
             }`}>
               <option value="GWP版本AR6(2021)">GWP版本AR6(2021)</option>
             </select>
