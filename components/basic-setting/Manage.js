@@ -87,7 +87,7 @@ setting:1
   },
 ];
 const Manage = () => {
-  const [isEditing, setIsEditiong] = useState(true);
+  const [isEditing, setIsEditing] = useState(true);
   return (
     <div className="w-full h-full overflow-y-scroll rounded-xl bg-white/90 p-4">
       <div className="flex justify-between items-center mb-6">
@@ -95,20 +95,10 @@ const Manage = () => {
           集團管理設計
         </div>
       </div>
-      <div
-        className={
-          isEditing
-            ? ""
-            : "hidden"
-        }>
-        <AddGroup  />
-        </div>
-      <div
-        className={
-          isEditing
-            ? "hidden"
-            : ""
-        }>
+      <div className={isEditing ? "" : "hidden"}>
+        <AddGroup isEditing={isEditing} setIsEditing={setIsEditing} />
+      </div>
+      <div className={isEditing ? "hidden" : ""}>
         <div className="mb-8 w-full flex justify-between items-center flex-wrap">
           <div className="w-full flex flex-wrap justify-start items-center gap-1 lg:gap-3">
             <div className=" ">
