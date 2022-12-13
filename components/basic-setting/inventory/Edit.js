@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 const Edit = () => {
+  const [planFile, setPlanFile] = useState();
+  const [greenHouseFile, setGreenHouseFileFile] = useState();
   return (
     <div className=" w-11/12 mx-auto">
       <div className="grid grid-cols-[repeat(20,_1fr)] gap-5 w-full mb-12">
@@ -174,10 +176,10 @@ const Edit = () => {
           <div className="mb-6 text-sm text-red-500">
             (支援格式JPG、PDF檔案格式)
           </div>
-          <div className="flex justify-start items-center">
+          <div className="flex justify-start items-start gap-2">
             <label
               htmlFor="floorPlan"
-              className="min-w-[100px] aspect-square flex flex-col justify-center items-center cursor-pointer border-2 border=[#BDBDBD] rounded-lg p-3">
+              className="w-[100px] aspect-square flex flex-col justify-center items-center cursor-pointer border-2 border=[#BDBDBD] rounded-lg p-3">
               <Image
                 width={24}
                 height={24}
@@ -191,12 +193,33 @@ const Edit = () => {
                 上傳檔案
               </div>
               <input
+                accept=".pdf,.jpg,.jpeg"
                 type="file"
                 name="floorPlan"
                 id="floorPlan"
                 className="hidden"
+                onChange={(event) => {
+                  setPlanFile(event.target.files[0]);
+                }}
               />
             </label>
+            {planFile != undefined && (
+              <div>
+                <div className="w-[100px] aspect-square flex flex-col justify-center items-center border-2 border-[#57A9CF] bg-[#A9D6EB33] rounded-lg p-3">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/doc.svg"}
+                    className="mb-4"
+                  />
+                  <div className="px-2 w-[100px] whitespace-nowrap overflow-hidden overflow-ellipsis text-center  text-sm text-[#2291C5]">
+                    文件檔名<br/>
+                    {planFile.name}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="w-1/2">
@@ -209,7 +232,7 @@ const Edit = () => {
           </div>
           <div className="flex justify-start items-center">
             <label
-              htmlFor="floorPlan"
+              htmlFor="greenHouse"
               className="min-w-[100px] aspect-square flex flex-col justify-center items-center cursor-pointer border-2 border=[#BDBDBD] rounded-lg p-3">
               <Image
                 width={24}
@@ -224,9 +247,10 @@ const Edit = () => {
                 上傳檔案
               </div>
               <input
+                accept=".pdf,.jpg,.jpeg"
                 type="file"
-                name="floorPlan"
-                id="floorPlan"
+                name="greenHouse"
+                id="greenHouse"
                 className="hidden"
               />
             </label>
