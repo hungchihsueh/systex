@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import Image from "next/image";
-const Edit = () => {
+import Popup from "../../popup/Popup";
+const Edit = ({ setIsEditing }) => {
+  // state
   const [planFile, setPlanFile] = useState();
   const [greenHouseFile, setGreenHouseFileFile] = useState();
+  const [isSaved,setIsSaved]=useState(false)
+  // fuction
+  const cancel = () => {
+    setIsEditing(false);
+  };
+  const save = () => {
+    setIsSaved(true)
+    setTimeout(() => {
+      setIsEditing(false);
+    }, 1000);
+  };
   return (
     <div className=" w-11/12 mx-auto">
       <div className="grid grid-cols-[repeat(20,_1fr)] gap-5 w-full mb-12">
@@ -167,7 +180,7 @@ const Edit = () => {
           </select>
         </div>
       </div>
-      <div className="mt-12 w-full flex justify-between items-center">
+      <div className="mt-12 w-full flex justify-between items-center gap-2">
         <div className="w-1/2">
           <div>
             <span className=" text-base font-medium text-red-500">*</span>
@@ -204,7 +217,7 @@ const Edit = () => {
               />
             </label>
             {planFile != undefined && (
-              <div>
+              <div className="flex items-end gap-2">
                 <div className="w-[100px] aspect-square flex flex-col justify-center items-center border-2 border-[#57A9CF] bg-[#A9D6EB33] rounded-lg p-3">
                   <Image
                     width={24}
@@ -214,10 +227,23 @@ const Edit = () => {
                     className="mb-4"
                   />
                   <div className="px-2 w-[100px] whitespace-nowrap overflow-hidden overflow-ellipsis text-center  text-sm text-[#2291C5]">
-                    文件檔名<br/>
+                    文件檔名
+                    <br />
                     {planFile.name}
                   </div>
                 </div>
+                <button
+                  className="bg-[#EB5757] rounded-lg p-1"
+                  onClick={() => {
+                    setPlanFile();
+                  }}>
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                </button>
               </div>
             )}
           </div>
@@ -230,7 +256,7 @@ const Edit = () => {
           <div className="mb-6 text-sm text-red-500">
             (支援格式JPG、PDF檔案格式)
           </div>
-          <div className="flex justify-start items-center">
+          <div className="flex justify-start items-center gap-2">
             <label
               htmlFor="greenHouse"
               className="min-w-[100px] aspect-square flex flex-col justify-center items-center cursor-pointer border-2 border=[#BDBDBD] rounded-lg p-3">
@@ -252,11 +278,64 @@ const Edit = () => {
                 name="greenHouse"
                 id="greenHouse"
                 className="hidden"
+                onChange={(event) => {
+                  setGreenHouseFileFile(event.target.files[0]);
+                }}
               />
             </label>
+            {greenHouseFile != undefined && (
+              <div className="flex items-end gap-2">
+                <div className="w-[100px] aspect-square flex flex-col justify-center items-center border-2 border-[#57A9CF] bg-[#A9D6EB33] rounded-lg p-3">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/doc.svg"}
+                    className="mb-4"
+                  />
+                  <div className="px-2 w-[100px] whitespace-nowrap overflow-hidden overflow-ellipsis text-center  text-sm text-[#2291C5]">
+                    文件檔名
+                    <br />
+                    {greenHouseFile.name}
+                  </div>
+                </div>
+                <button
+                  className="bg-[#EB5757] rounded-lg p-1"
+                  onClick={() => {
+                    setGreenHouseFileFile();
+                  }}>
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
+      <div className="mt-10 w-full flex justify-center items-center gap-5">
+        <button
+          className={`rounded-md text-[#289D9B] py-3 px-16 border border-[#289D9B] bg-white`}
+          onClick={() => {
+            cancel();
+          }}>
+          取消
+        </button>
+        <button
+          className="rounded-md text-white py-3 px-16 bg-gradient-to-b from-[#63C2CF] to-[#199694]"
+          onClick={() => {
+            save();
+          }}>
+          儲存
+        </button>
+      </div>
+    {isSaved&&<Popup
+        img={"/icon/white-success.svg"}
+        text={"資料新增成功"}
+      />}
     </div>
   );
 };
