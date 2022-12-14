@@ -55,6 +55,7 @@ const product = [
   "產品生命終期排放量",
   "投資產生排放量",
 ];
+const other = ["特許行業", "加盟"];
 // main function
 const IdentificationOfEmissionSources = () => {
   // state
@@ -68,6 +69,7 @@ const IdentificationOfEmissionSources = () => {
   const [selectTransport, setSelectTransport] = useState([]);
   const [selectOrgGas, setSelectOrgGas] = useState([]);
   const [selectProduct, setSelectProduct] = useState([]);
+  const [selectOther, setSelectOther] = useState([]);
   // template
   return (
     <div>
@@ -412,6 +414,51 @@ const IdentificationOfEmissionSources = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* cat-6 */}
+      <div className="w-full mb-6 overflow-hidden rounded-lg border border-[#63C2CF]">
+        <div className="bg-[#63C2CF] w-full p-3 text-white text-center font-bold">
+          類別六:由其他來源產生的間接溫室氣體排放
+        </div>
+        <div className="px-8 py-6">
+          {/* 6-1 */}
+          <div className="flex justify-between items-start gap-5">
+            <div className="w-1/5">6.其他來源間接排放</div>
+            <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
+              {other.map((option, i) => {
+                return (
+                  <button
+                    key={`${option}${i}`}
+                    className={`rounded-md px-4 py-2 border border-[#63C2CF] text-[#63C2CF] whitespace-nowrap ${
+                      selectOther.includes(option) &&
+                      "!bg-[#2291C5] !border-[#2291C5] !text-white"
+                    }`}
+                    onClick={() => {
+                      console.log(selectOther.includes(option));
+                      if (!selectOther.includes(option)) {
+                        setSelectOther([...selectOther, option]);
+                      } else {
+                        let newArr = [...selectOther].filter(
+                          (item) => item !== option,
+                        );
+                        setSelectOther(newArr);
+                      }
+                    }}>
+                    {option}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-1/3 mx-auto flex justify-center items-center gap-5">
+        <button className="py-2 px-8 rounded-md border border-[#23AFA4] text-[#23AFA4]">
+          取消
+        </button>
+        <button className="py-2 px-8 rounded-md border border-[#23AFA4] bg-[#23AFA4] text-white">
+          儲存資料
+        </button>
       </div>
     </div>
   );
