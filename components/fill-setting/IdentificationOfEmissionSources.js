@@ -27,6 +27,34 @@ const landUseGas = [
   "居留地",
   "其他土地",
 ];
+const electricity = [
+  "電力",
+  "自用電力",
+  "分攤電力",
+  "自發自用再生能源",
+  "轉供再生能源",
+  "再生能源憑證",
+];
+const steam = ["外購蒸氣"];
+const transport = [
+  "貨物上游運輸與配送",
+  "貨物下游運輸與配送",
+  "員工通勤",
+  "輸運客戶與訪客",
+  "商務旅運",
+];
+const orgGas = [
+  "購買商品",
+  "資本貨物",
+  "處理固體和液體廢棄物排放量",
+  "未規定於上述細分類中，由服務使用產生排放(諮商、清潔、維護、郵遞、銀行業務等)",
+];
+const product = [
+  "產品使用階段產生之排放或清除",
+  "下游承租的資產",
+  "產品生命終期排放量",
+  "投資產生排放量",
+];
 // main function
 const IdentificationOfEmissionSources = () => {
   // state
@@ -35,21 +63,26 @@ const IdentificationOfEmissionSources = () => {
   const [selectDirectEmissions, setSelectDirectEmissions] = useState([]);
   const [selectAnthropogenicGas, setSelectAnthropogenicGas] = useState([]);
   const [selectLandUseGas, setSelectLandUseGas] = useState([]);
+  const [selectElectricity, setSelectElectricity] = useState([]);
+  const [selectSteam, setSelectsteam] = useState([]);
+  const [selectTransport, setSelectTransport] = useState([]);
+  const [selectOrgGas, setSelectOrgGas] = useState([]);
+  const [selectProduct, setSelectProduct] = useState([]);
   // template
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-start mb-6">
         <div className=" w-full text-2xl font-black text-[#467980]">
           排放源鑑別-鑑別資料新增
         </div>
       </div>
-      <div className="w-full overflow-hidden rounded-lg border border-[#63C2CF]">
+      <div className="w-full mb-6 overflow-hidden rounded-lg border border-[#63C2CF]">
         <div className="bg-[#63C2CF] w-full p-3 text-white text-center font-bold">
           類別一:直接溫室氣體排放與移除
         </div>
         <div className="px-8 py-6">
           {/* 1-1 */}
-          <div className="mb-10 flex justify-between items-center gap-2">
+          <div className="mb-10 flex justify-between items-start gap-5">
             <div className="w-1/5">1.1 固定式燃料源</div>
             <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
               {source1.map((source, i) => {
@@ -78,7 +111,7 @@ const IdentificationOfEmissionSources = () => {
             </div>
           </div>
           {/* 1-2 */}
-          <div className="mb-10 flex justify-between items-center gap-2">
+          <div className="mb-10 flex justify-between items-start gap-5">
             <div className="w-1/5">1.2 移動式燃料源</div>
             <div className=" w-4/5 flex flex-wrap justify-start items-center gap-4">
               {source2.map((source, i) => {
@@ -107,7 +140,7 @@ const IdentificationOfEmissionSources = () => {
             </div>
           </div>
           {/* 1-3 */}
-          <div className="mb-10 flex justify-between items-center gap-2">
+          <div className="mb-10 flex justify-between items-start gap-5">
             <div className="w-1/5">1.3 產業過程之直接排放</div>
             <div className=" w-4/5 flex flex-wrap justify-start items-center gap-4">
               {directEmissions.map((emission, i) => {
@@ -139,7 +172,7 @@ const IdentificationOfEmissionSources = () => {
             </div>
           </div>
           {/* 1-4 */}
-          <div className="mb-10 flex justify-between items-center gap-2">
+          <div className="mb-10 flex justify-between items-start gap-5">
             <div className="w-1/5">
               1.4 人為系統所釋放的溫室氣體 產生的直接暫時性排放
             </div>
@@ -172,7 +205,7 @@ const IdentificationOfEmissionSources = () => {
             </div>
           </div>
           {/* 1-5 */}
-          <div className=" flex justify-between items-center gap-2">
+          <div className=" flex justify-between items-start gap-5">
             <div className="w-1/5">
               1.5 土地使用、土地使用更及林業之直接排放
             </div>
@@ -196,6 +229,183 @@ const IdentificationOfEmissionSources = () => {
                       }
                     }}>
                     {gas}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* cat-2 */}
+      <div className="w-full mb-6 overflow-hidden rounded-lg border border-[#63C2CF]">
+        <div className="bg-[#63C2CF] w-full p-3 text-white text-center font-bold">
+          類別二:由輸入能源產生之間接溫室氣體排放
+        </div>
+        <div className="px-8 py-6">
+          {/* 2-1 */}
+          <div className="mb-10 flex justify-between items-start gap-5">
+            <div className="w-1/5">2.1 外購電力</div>
+            <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
+              {electricity.map((ele, i) => {
+                return (
+                  <button
+                    key={`${ele}${i}`}
+                    className={`rounded-md px-4 py-2 border border-[#63C2CF] text-[#63C2CF] whitespace-nowrap ${
+                      selectElectricity.includes(ele) &&
+                      "!bg-[#2291C5] !border-[#2291C5] !text-white"
+                    }`}
+                    onClick={() => {
+                      console.log(selectElectricity.includes(ele));
+                      if (!selectElectricity.includes(ele)) {
+                        setSelectElectricity([...selectElectricity, ele]);
+                      } else {
+                        let newArr = [...selectElectricity].filter(
+                          (item) => item !== ele,
+                        );
+                        setSelectElectricity(newArr);
+                      }
+                    }}>
+                    {ele}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* 2-2 */}
+          <div className="mb-10 flex justify-between items-start gap-5">
+            <div className="w-1/5">2.2 外購蒸氣</div>
+            <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
+              {steam.map((steam, i) => {
+                return (
+                  <button
+                    key={`${steam}${i}`}
+                    className={`rounded-md px-4 py-2 border border-[#63C2CF] text-[#63C2CF] whitespace-nowrap ${
+                      selectSteam.includes(steam) &&
+                      "!bg-[#2291C5] !border-[#2291C5] !text-white"
+                    }`}
+                    onClick={() => {
+                      console.log(selectSteam.includes(steam));
+                      if (!selectSteam.includes(steam)) {
+                        setSelectsteam([...selectSteam, steam]);
+                      } else {
+                        let newArr = [...selectSteam].filter(
+                          (item) => item !== steam,
+                        );
+                        setSelectsteam(newArr);
+                      }
+                    }}>
+                    {steam}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* cat-3 */}
+      <div className="w-full mb-6 overflow-hidden rounded-lg border border-[#63C2CF]">
+        <div className="bg-[#63C2CF] w-full p-3 text-white text-center font-bold">
+          類別三:運輸產生之間接溫室氣體排放
+        </div>
+        <div className="px-8 py-6">
+          {/* 3-1 */}
+          <div className="flex justify-between items-start gap-5">
+            <div className="w-1/5">3. 運輸產生之間接溫室氣體排放</div>
+            <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
+              {transport.map((transport, i) => {
+                return (
+                  <button
+                    key={`${transport}${i}`}
+                    className={`rounded-md px-4 py-2 border border-[#63C2CF] text-[#63C2CF] whitespace-nowrap ${
+                      selectTransport.includes(transport) &&
+                      "!bg-[#2291C5] !border-[#2291C5] !text-white"
+                    }`}
+                    onClick={() => {
+                      console.log(selectTransport.includes(transport));
+                      if (!selectTransport.includes(transport)) {
+                        setSelectTransport([...selectTransport, transport]);
+                      } else {
+                        let newArr = [...selectTransport].filter(
+                          (item) => item !== transport,
+                        );
+                        setSelectTransport(newArr);
+                      }
+                    }}>
+                    {transport}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* cat-4 */}
+      <div className="w-full mb-6 overflow-hidden rounded-lg border border-[#63C2CF]">
+        <div className="bg-[#63C2CF] w-full p-3 text-white text-center font-bold">
+          類別四:由組織使用的產品所產生的間接溫室氣體排放
+        </div>
+        <div className="px-8 py-6">
+          {/* 4-1 */}
+          <div className="flex justify-between items-start gap-5">
+            <div className="w-1/5">4. 組織使用產品之間接溫室氣體排放</div>
+            <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
+              {orgGas.map((gas, i) => {
+                return (
+                  <button
+                    key={`${gas}${i}`}
+                    className={`rounded-md px-4 py-2 border border-[#63C2CF] text-[#63C2CF] whitespace-nowrap ${
+                      selectOrgGas.includes(gas) &&
+                      "!bg-[#2291C5] !border-[#2291C5] !text-white"
+                    }`}
+                    onClick={() => {
+                      console.log(selectOrgGas.includes(gas));
+                      if (!selectOrgGas.includes(gas)) {
+                        setSelectOrgGas([...selectOrgGas, gas]);
+                      } else {
+                        let newArr = [...selectOrgGas].filter(
+                          (item) => item !== gas,
+                        );
+                        setSelectOrgGas(newArr);
+                      }
+                    }}>
+                    {gas}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* cat-5 */}
+      <div className="w-full mb-6 overflow-hidden rounded-lg border border-[#63C2CF]">
+        <div className="bg-[#63C2CF] w-full p-3 text-white text-center font-bold">
+          類別五:與組織的產品使用相關之間接溫室氣體排放
+        </div>
+        <div className="px-8 py-6">
+          {/* 5-1 */}
+          <div className="flex justify-between items-start gap-5">
+            <div className="w-1/5">5. 使用組織產品之間接室氣體排放</div>
+            <div className="w-4/5 flex flex-wrap justify-start items-center gap-4">
+              {product.map((p, i) => {
+                return (
+                  <button
+                    key={`${p}${i}`}
+                    className={`rounded-md px-4 py-2 border border-[#63C2CF] text-[#63C2CF] whitespace-nowrap ${
+                      selectProduct.includes(p) &&
+                      "!bg-[#2291C5] !border-[#2291C5] !text-white"
+                    }`}
+                    onClick={() => {
+                      console.log(selectProduct.includes(p));
+                      if (!selectProduct.includes(p)) {
+                        setSelectProduct([...selectProduct, p]);
+                      } else {
+                        let newArr = [...selectProduct].filter(
+                          (item) => item !== p,
+                        );
+                        setSelectProduct(newArr);
+                      }
+                    }}>
+                    {p}
                   </button>
                 );
               })}
