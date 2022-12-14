@@ -189,12 +189,13 @@ const Manage = () => {
                 "& .MuiDataGrid-columnSeparator": {
                   display: "none",
                 },
-                "& .MuiDataGrid-cell": {
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  textAlign: "center",
-                },
+                "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                  {
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    textAlign: "center",
+                  },
               }}>
               <DataGrid
                 rows={rows}

@@ -7,9 +7,6 @@ const Coefficient = () => {
   const [version, setVersion] = useState("");
   const [category, setCategory] = useState("");
   const [activeTab, setActiveTab] = useState(0); //tab index
-  // data grid
-  const [cols, setCols] = useState([]);
-  const [rows, setRows] = useState([]);
   const tabs = [
     { img: "/icon/gwp-co2.svg", text: "GWP" },
     { img: "/icon/car-exaust.svg", text: "固定與移動放源" },
@@ -17,6 +14,456 @@ const Coefficient = () => {
     { img: "/icon/factory.svg", text: "製程排放源" },
     { img: "/icon/co2-foot.svg", text: "其他" },
   ];
+  // data grid
+  const tables = [
+    {
+      columns: [
+        {
+          field: "versionName",
+          headerName: "版本名稱",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1.5,
+          // wid1000th: 300,
+        },
+        {
+          field: "date",
+          headerName: "生效日期",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionNo",
+          headerName: "版本號",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionStatus",
+          headerName: "版本狀態",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "publishStatus",
+          headerName: "發行狀態",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "setting",
+          headerName: "設定",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          renderCell: (val) => {
+            return (
+              <div className="w-full h-full overflow-y-scroll flex justify-center items-center ">
+                <button className="bg-[#828282] rounded-lg p-1">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/white-eyes.svg"}
+                  />
+                </button>
+              </div>
+            );
+          },
+          // width: 300
+        },
+      ],
+      rows: [
+        {
+          id: 1,
+          versionName: "AR6 (2021)",
+          date: "2021/01/01",
+          versionNo: "1",
+          versionStatus: "啟用",
+          publishStatus: "已發行",
+          setting: 1,
+        },
+      ],
+    },
+    {
+      columns: [
+        {
+          field: "name",
+          headerName: "原燃物料名稱",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1.5,
+          // wid1000th: 300,
+        },
+        {
+          field: "form",
+          headerName: "排放原型式",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "source",
+          headerName: "係數來源",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "area",
+          headerName: "區域",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "startDate",
+          headerName: "適用起始日",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionNo",
+          headerName: "版本號",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "status",
+          headerName: "發行狀態",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "category",
+          headerName: "類別",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "isStop",
+          headerName: "停用",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "isBio",
+          headerName: "生物燃料",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "setting",
+          headerName: "設定",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          renderCell: (val) => {
+            return (
+              <div className="w-full h-full overflow-y-scroll flex justify-center items-center gap-1">
+                <button
+                  className="bg-[#0075AC] rounded-lg p-1"
+                  onClick={() => {
+                    setIsEditing(true);
+                    console.log(val);
+                  }}>
+                  <Image width={24} height={24} alt="" src={"/icon/edit.svg"} />
+                </button>
+                <button className="bg-[#828282] rounded-lg p-1">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/white-eyes.svg"}
+                  />
+                </button>
+                <button className="bg-[#EB5757] rounded-lg p-1">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                </button>
+              </div>
+            );
+          },
+          // width: 300
+        },
+      ],
+      rows: [
+        {
+          id: 1,
+          name: "石油焦",
+          form: "固定燃燒源",
+          source: "環保署國家溫室氣體登錄平台",
+          area: "台灣",
+          startDate: "2019/01/01",
+          versionNo: "1",
+          status: "已發行",
+          category: "系統",
+          isStop: "否",
+          isBio: "否",
+          setting: 1,
+        },
+      ],
+    },
+    {
+      columns: [
+        {
+          field: "versionName",
+          headerName: "版本名稱",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1.5,
+          // wid1000th: 300,
+        },
+        {
+          field: "date",
+          headerName: "生效日期",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionNo",
+          headerName: "版本號",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionStatus",
+          headerName: "版本狀態",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "publishStatus",
+          headerName: "發行狀態",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "setting",
+          headerName: "設定",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          renderCell: (val) => {
+            return (
+              <div className="w-full h-full overflow-y-scroll flex justify-center items-center ">
+                <button className="bg-[#828282] rounded-lg p-1">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/white-eyes.svg"}
+                  />
+                </button>
+              </div>
+            );
+          },
+          // width: 300
+        },
+      ],
+      rows: [
+        {
+          id: 1,
+          versionName: "AR6 (2021)",
+          date: "2021/01/01",
+          versionNo: "1",
+          versionStatus: "啟用",
+          publishStatus: "已發行",
+          setting: 1,
+        },
+      ],
+    },
+    {
+      columns: [
+        {
+          field: "versionName",
+          headerName: "版本名稱",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1.5,
+          // wid1000th: 300,
+        },
+        {
+          field: "date",
+          headerName: "生效日期",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionNo",
+          headerName: "版本號",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionStatus",
+          headerName: "版本狀態",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "publishStatus",
+          headerName: "發行狀態",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "setting",
+          headerName: "設定",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          renderCell: (val) => {
+            return (
+              <div className="w-full h-full overflow-y-scroll flex justify-center items-center ">
+                <button className="bg-[#828282] rounded-lg p-1">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/white-eyes.svg"}
+                  />
+                </button>
+              </div>
+            );
+          },
+          // width: 300
+        },
+      ],
+      rows: [
+        {
+          id: 1,
+          versionName: "AR6 (2021)",
+          date: "2021/01/01",
+          versionNo: "1",
+          versionStatus: "啟用",
+          publishStatus: "已發行",
+          setting: 1,
+        },
+      ],
+    },
+    {
+      columns: [
+        {
+          field: "versionName",
+          headerName: "版本名稱",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1.5,
+          // wid1000th: 300,
+        },
+        {
+          field: "date",
+          headerName: "生效日期",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionNo",
+          headerName: "版本號",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "versionStatus",
+          headerName: "版本狀態",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "publishStatus",
+          headerName: "發行狀態",
+          headerClassName: "dataGrid-header-odd",
+          headerAlign: "center",
+          flex: 1,
+          // width: 300,
+        },
+        {
+          field: "setting",
+          headerName: "設定",
+          headerClassName: "dataGrid-header-even",
+          headerAlign: "center",
+          flex: 1,
+          renderCell: (val) => {
+            return (
+              <div className="w-full h-full overflow-y-scroll flex justify-center items-center ">
+                <button className="bg-[#828282] rounded-lg p-1">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/white-eyes.svg"}
+                  />
+                </button>
+              </div>
+            );
+          },
+          // width: 300
+        },
+      ],
+      rows: [
+        {
+          id: 1,
+          versionName: "AR6 (2021)",
+          date: "2021/01/01",
+          versionNo: "1",
+          versionStatus: "啟用",
+          publishStatus: "已發行",
+          setting: 1,
+        },
+      ],
+    },
+  ];
+
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
@@ -96,7 +543,7 @@ const Coefficient = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-start items-center">
+      <div className="mb-4 flex justify-start items-center">
         {tabs.map((tab, i) => {
           return (
             <>
@@ -114,7 +561,11 @@ const Coefficient = () => {
                   height={24}
                   alt=""
                   src={tab.img}
-                  className={"transition-all duration-300"}
+                  className={`transition-all duration-300 ${
+                    activeTab === i
+                      ? "brightness-100 saturate-100 opacity-100"
+                      : "brightness-50 saturate-0 opacity-40"
+                  }`}
                 />
                 <div
                   className={`text-lg transition-all duration-300 ${
@@ -128,6 +579,42 @@ const Coefficient = () => {
             </>
           );
         })}
+      </div>
+      {/* table */}
+      <div className="flex h-full">
+        <div className="flex-grow">
+          <Box
+            sx={{
+              height: 300,
+              width: "100%",
+              "& .dataGrid-header-odd": {
+                backgroundColor: "#23AFA4",
+                color: "white",
+              },
+              "& .dataGrid-header-even": {
+                backgroundColor: "#289D9B",
+                color: "white",
+              },
+              "& .MuiDataGrid-columnSeparator": {
+                display: "none",
+              },
+              "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                {
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  textAlign: "center",
+                },
+            }}>
+            <DataGrid
+              rows={tables[activeTab].rows}
+              columns={tables[activeTab].columns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+              // checkboxSelection
+            />
+          </Box>
+        </div>
       </div>
     </div>
   );
