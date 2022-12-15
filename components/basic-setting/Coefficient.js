@@ -611,7 +611,6 @@ const Coefficient = () => {
               columns={tables[activeTab].columns}
               pageSize={5}
               rowsPerPageOptions={[5]}
-              // checkboxSelection
             />
           </Box>
         </div>

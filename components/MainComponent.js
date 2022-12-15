@@ -13,6 +13,8 @@ import CatThree from "../components/fill-setting/CatThree";
 import CatFour from "../components/fill-setting/CatFour";
 import CatFive from "../components/fill-setting/CatFive";
 import CatSix from "../components/fill-setting/CatSix";
+import InventoryList from "./inventory/InventoryList";
+import EpaList from "./inventory/EpaList";
 const MainComponent = () => {
   const { activeTab, activeItem } = useContext(DashboardContext);
   return (
@@ -28,12 +30,15 @@ const MainComponent = () => {
       {activeTab == "填報設定" && activeItem == 1 && (
         <MaterialityIdentification />
       )}
-      {activeTab == "填報設定" && activeItem == 2 && <CatOne />}
-      {activeTab == "填報設定" && activeItem == 3 && <CatTwo />}
-      {activeTab == "填報設定" && activeItem == 4 && <CatThree />}
-      {activeTab == "填報設定" && activeItem == 5 && <CatFour />}
-      {activeTab == "填報設定" && activeItem == 6 && <CatFive />}
-      {activeTab == "填報設定" && activeItem == 7 && <CatSix />}
+      {activeTab == "填報設定" && activeItem === 2 && <CatOne />}
+      {activeTab == "填報設定" && activeItem === 3 && <CatTwo />}
+      {activeTab == "填報設定" && activeItem === 4 && <CatThree />}
+      {activeTab == "填報設定" && activeItem === 5 && <CatFour />}
+      {activeTab == "填報設定" && activeItem === 6 && <CatFive />}
+      {activeTab == "填報設定" && activeItem === 7 && <CatSix />}
+      {activeTab == "填報設定" && activeItem === 7 && <CatSix />}
+      {activeTab == "程序清冊" && activeItem !== 2 && <InventoryList />}
+      {activeTab == "程序清冊" && activeItem === 2 && <EpaList />}
     </div>
   );
 };
