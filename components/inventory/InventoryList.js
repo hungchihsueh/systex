@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 const CatTitle = ({ text }) => {
   return (
     <div className=" col-span-8 text-white bg-[#2291C5] border border-white p-2 text-center flex justify-center items-center font-bold">
@@ -7,7 +7,7 @@ const CatTitle = ({ text }) => {
     </div>
   );
 };
-const ItemTitle = ({ text,spanCount,isOdd }) => {
+const ItemTitle = ({ text, spanCount, isOdd }) => {
   return (
     <div
       className={`col-span-${spanCount} text-[#005E8A] ${
@@ -47,17 +47,43 @@ const ItemTitles = [
     span: 2,
   },
 ];
-const Cell = ({ cat, data }) => {
+const Cell = ({ data, spanCount }) => {
   return (
-    <div className="bg-[#A3A5BF1A] border border-white p-2  flex justify-center items-center">
-      {typeof data !== "number"
-        ? data && (
-            <Image width={24} height={24} alt="" src={"/icon/Check-box.svg"} />
-          )
-        : `${cat}-${data}`}
+    <div className={` col-span-${spanCount} bg-[#A3A5BF1A] border border-white p-2  flex justify-center items-center`}>
+     {data}
     </div>
   );
 };
+const cells = [
+  {
+    data: "範疇一",
+    span: 1,
+  },
+  {
+    data: "逸散源",
+    span: 1,
+  },
+  {
+    data: "空調設備",
+    span: 1,
+  },
+  {
+    data: "R32",
+    span: 1,
+  },
+  {
+    data: "2610",
+    span: 1,
+  },
+  {
+    data: "2610",
+    span: 1,
+  },
+  {
+    data: "2.438",
+    span: 2,
+  },
+];
 const InventoryList = () => {
   return (
     <div>
@@ -99,7 +125,25 @@ const InventoryList = () => {
       </div>
       <div className="grid grid-cols-[repeat(8,_1fr)]">
         <CatTitle text="排放清冊" />
-        {ItemTitles.map((item, i) => { return <ItemTitle key={item.name} text={item.name} spanCount={item.span} isOdd={i%2!=0} />;})}
+        {ItemTitles.map((item, i) => {
+          return (
+            <ItemTitle
+              key={item.name}
+              text={item.name}
+              spanCount={item.span}
+              isOdd={i % 2 != 0}
+            />
+          );
+        })}
+        {cells.map((cell, i) => {
+          return (
+            <Cell
+              key={`${cell.name}_${i}`}
+              data={cell.data}
+              spanCount={cell.span}
+            />
+          );
+        })}
       </div>
     </div>
   );
