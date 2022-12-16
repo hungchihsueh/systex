@@ -29,7 +29,7 @@ const NavButton = ({
         className={
           isActive
             ? `text-[#4DA7B0] bg-[#E5F9F5] rounded-l-full text-2xl font-medium w-full py-3 px-2 flex justify-between items-center`
-            : `text-white text-2xl font-medium w-full py-3 px-2  flex justify-between  items-center transition-all duration-200`
+            : `text-white text-xl font-medium w-full py-3 px-2  flex justify-between  items-center transition-all duration-200`
         }>
         <div className="flex justify-start items-center">
           <span>

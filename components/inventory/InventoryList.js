@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
-const CatTitle = ({ text }) => {
+const CatTitle = ({ text,span }) => {
   return (
-    <div className=" col-span-8 text-white bg-[#2291C5] border border-white p-2 text-center flex justify-center items-center font-bold">
+    <div
+      className={`col-span-${span} text-white bg-[#2291C5] border border-white p-2 text-center flex justify-center items-center font-bold`}>
       {text}
     </div>
   );
@@ -49,7 +50,7 @@ const ItemTitles = [
 ];
 const Cell = ({ data, spanCount }) => {
   return (
-    <div className={` col-span-${spanCount} bg-[#A3A5BF1A] border border-white p-2  flex justify-center items-center`}>
+    <div className={`text-base font-normal col-span-${spanCount} bg-[#A3A5BF1A] border border-white p-2  flex justify-center items-center`}>
      {data}
     </div>
   );
@@ -124,7 +125,7 @@ const InventoryList = () => {
         </div>
       </div>
       <div className="grid grid-cols-[repeat(8,_1fr)]">
-        <CatTitle text="排放清冊" />
+        <CatTitle text="排放清冊" span="8" />
         {ItemTitles.map((item, i) => {
           return (
             <ItemTitle
@@ -138,7 +139,87 @@ const InventoryList = () => {
         {cells.map((cell, i) => {
           return (
             <Cell
-              key={`${cell.name}_${i}`}
+              key={`${cell.data}_${i}`}
+              data={cell.data}
+              spanCount={cell.span}
+            />
+          );
+        })}
+        <CatTitle text="範疇別排放量統計表" span="8" />
+        {[
+          { name: "範疇別", span: 4 },
+          { name: "合計", span: 4 },
+        ].map((item, i) => {
+          return (
+            <ItemTitle
+              key={item.name}
+              text={item.name}
+              spanCount={item.span}
+              isOdd={i % 2 != 0}
+            />
+          );
+        })}
+        {[
+          { data: "範疇一", span: 4 },
+          { data: "13.773153", span: 4 },
+        ].map((cell, i) => {
+          return (
+            <Cell
+              key={`${cell.data}_${i}`}
+              data={cell.data}
+              spanCount={cell.span}
+            />
+          );
+        })}
+      </div>
+      <div className="grid grid-cols-[repeat(10,_1fr)]">
+        <div
+          className={`col-[span_10_/_span_10] text-white bg-[#2291C5] border border-white p-2 text-center flex justify-center items-center font-bold`}>
+          範疇一之七大溫室氣體排放量統計表
+        </div>
+        {[
+          { name: "範疇別", span: 2 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+          { name: "合計", span: 1 },
+        ].map((item, i) => {
+          return (
+            <ItemTitle
+              key={item.name}
+              text={item.name}
+              spanCount={item.span}
+              isOdd={i % 2 != 0}
+            />
+          );
+        })}
+        {[
+          { data: "範疇一", span: 2 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "13.773153", span: 1 },
+          { data: "氣體別占比(%)", span: 2 },
+          { data: "76%", span: 1 },
+          { data: "1%", span: 1 },
+          { data: "2%", span: 1 },
+          { data: "21%", span: 1 },
+          { data: "0%", span: 1 },
+          { data: "0%", span: 1 },
+          { data: "0%", span: 1 },
+          { data: "100%", span: 1 },
+        ].map((cell, i) => {
+          return (
+            <Cell
+              key={`${cell.data}_${i}`}
               data={cell.data}
               spanCount={cell.span}
             />

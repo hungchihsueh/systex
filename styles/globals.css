@@ -17,6 +17,13 @@
     /* outline: 1px solid slategrey; */
 }
 
+.sidebar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
 .sidebar::-webkit-scrollbar {
-    /* width: 5px; */
+    width: 1px;
+    height: 90%;
+    /* position: relative; */
+    /* left: 10px; */
 }
