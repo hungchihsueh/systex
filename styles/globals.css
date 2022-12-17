@@ -27,3 +27,24 @@
     /* position: relative; */
     /* left: 10px; */
 }
+
+.c-7 {
+    grid-column: span 7/span 7
+}
+
+.c-50 {
+    grid-column: span 50/span 50
+}
+
+.c-42 {
+    grid-column: span 42/span 42
+}
+
+.c-41 {
+    grid-column: span 41/span 41
+}
+
+.long-table {
+    display: grid;
+    grid-template-columns: 3fr 5fr 3fr 5fr 3fr 5fr 4fr repeat(2, 3fr) 5fr repeat(3, 3fr) repeat(2, 5fr) repeat(3, 4fr) 7fr 6fr 3fr 6fr repeat(2, 3fr) repeat(2, 5fr) repeat(3, 4fr) 7fr 6fr repeat(2, 3fr) repeat(2, 5fr) repeat(3, 4fr) 3fr 5fr 3fr repeat(4, 6fr);
+}

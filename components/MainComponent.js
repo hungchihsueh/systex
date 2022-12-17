@@ -15,10 +15,11 @@ import CatFive from "../components/fill-setting/CatFive";
 import CatSix from "../components/fill-setting/CatSix";
 import InventoryList from "./inventory/InventoryList";
 import EpaList from "./inventory/EpaList";
+import Role from "./auth-setting/Role";
 const MainComponent = () => {
   const { activeTab, activeItem } = useContext(DashboardContext);
   return (
-    <div className="w-full h-full overflow-y-scroll rounded-xl bg-white/90 p-4">
+    <div className="w-full h-full overflow-y-scroll rounded-xl bg-white/90 p-4 relative">
       {activeTab == "首頁" && activeItem == 0 && <Announcement />}
       {activeTab == "首頁" && activeItem == 1 && <Analysis />}
       {activeTab == "基本設定" && activeItem == 0 && <Manage />}
@@ -38,7 +39,9 @@ const MainComponent = () => {
       {activeTab == "填報設定" && activeItem === 7 && <CatSix />}
       {activeTab == "填報設定" && activeItem === 7 && <CatSix />}
       {activeTab == "程序清冊" && activeItem !== 2 && <InventoryList />}
-      {activeTab == "程序清冊" && activeItem === 2 && <EpaList />}
+      {activeTab == "程序清冊" && activeItem !== 3 && <EpaList />}
+      {activeTab == "權限管理" && activeItem === 0 && <Role />}
+      {activeTab == "權限管理" && activeItem === 1 && <Role />}
     </div>
   );
 };
