@@ -226,6 +226,11 @@ const InventoryList = () => {
           );
         })}
       </div>
+      <div className="w-full mt-6">
+        <button className="block mx-auto py-3 px-20 text-2xl text-white font-black bg-gradient-to-b from-[#63C2CF] to-[#199694] rounded-lg">
+          取消離開
+        </button>
+      </div>
     </div>
   );
 };
