@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
 const Role = () => {
-  return (
+    const roles = [
+        {name:"檢視人員",info:"系統默認角色,可操作選單列表(除權限管理),僅供檢視查看,不可新增、修改、刪除",},
+        {name:"填報人員",info:"系統默認角色,可操作選單列表(除權限管理),可查看、新增、修改、刪除",},
+        {name:"系統管理者",info:"系統默認角色,可操作所有選單列表,可查看、新增、修改、刪除",},
+    ]
+    const [role, setRole] = useState(1);
     <div>
       <div className="flex justify-between items-start mb-6">
         <div className=" w-full text-2xl font-black text-[#467980]">
-          清冊(ISO 14064-1 2006)
+          角色管理
         </div>
       </div>
       <div className="w-full flex justify-between items-center mb-10">
@@ -89,8 +94,16 @@ const Role = () => {
           </button>
         </div>
       </div>
+      {/* sda */}
+      <div className="w-full">
+        <div className="flex justify-between items-start mb-6">
+          <div className=" w-full text-2xl font-black text-[#467980]">
+            角色管理-{role}
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  
 }
 
 export default Role
