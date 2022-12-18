@@ -17,6 +17,8 @@ import InventoryList from "./inventory/InventoryList";
 import EpaList from "./inventory/EpaList";
 import Role from "./auth-setting/Role";
 import Account from "./auth-setting/Account";
+import Ad from "./message/Ad";
+import News from "./message/News";
 const MainComponent = () => {
   const { activeTab, activeItem } = useContext(DashboardContext);
   return (
@@ -43,6 +45,8 @@ const MainComponent = () => {
       {activeTab == "程序清冊" && activeItem !== 3 && <EpaList />}
       {activeTab == "權限管理" && activeItem === 0 && <Role />}
       {activeTab == "權限管理" && activeItem === 1 && <Account />}
+      {activeTab == "消息管理" && activeItem === 0 && <Ad />}
+      {activeTab == "消息管理" && activeItem === 1 && <News />}
     </div>
   );
 };
