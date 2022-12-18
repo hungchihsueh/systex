@@ -16,6 +16,7 @@ import CatSix from "../components/fill-setting/CatSix";
 import InventoryList from "./inventory/InventoryList";
 import EpaList from "./inventory/EpaList";
 import Role from "./auth-setting/Role";
+import Account from "./auth-setting/Account";
 const MainComponent = () => {
   const { activeTab, activeItem } = useContext(DashboardContext);
   return (
@@ -41,7 +42,7 @@ const MainComponent = () => {
       {activeTab == "程序清冊" && activeItem !== 2 && <InventoryList />}
       {activeTab == "程序清冊" && activeItem !== 3 && <EpaList />}
       {activeTab == "權限管理" && activeItem === 0 && <Role />}
-      {activeTab == "權限管理" && activeItem === 1 && <Role />}
+      {activeTab == "權限管理" && activeItem === 1 && <Account />}
     </div>
   );
 };

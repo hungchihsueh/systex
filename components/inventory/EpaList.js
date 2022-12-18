@@ -44,7 +44,7 @@ const EpaList = () => {
                 className="bg-[#BDBDBD] rounded-xl py-1 px-2 text-sm text-white">
                 匯出方式
               </label>
-              <select name="export" id="export" className="text-[#828282]">
+              <select name="export" id="export" className="text-[#828282] border-none ">
                 <option value="">請選擇方式</option>
               </select>
             </div>
