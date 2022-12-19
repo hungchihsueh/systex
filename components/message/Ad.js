@@ -168,7 +168,24 @@ const Ad = () => {
                 className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
               />
             </div>
-            <button className="flex justify-center items-center rounded-lg text-white font-bold py-2 px-5 bg-[#FFC700]"><Image alt=""/> </button>
+            <button className="self-end w-fit h-fit flex justify-center items-center rounded-lg text-white font-semibold py-2 px-5 bg-[#575979]">
+              <Image
+                alt=""
+                width={20}
+                height={20}
+                src={"/icon/doc-upload.svg"}
+                className="brightness-200 mr-2"
+              />
+              點擊上傳
+            </button>
+          </div>
+          <div className="w-full flex justify-center items-center gap-6">
+            <button className="border border-[#23AFA4] text-[#23AFA4] font-semibold rounded-lg px-8 py-2">
+              取消
+            </button>
+            <button className="border border-transparent bg-[#23AFA4] text-white font-semibold rounded-lg px-8 py-2">
+              確認
+            </button>
           </div>
         </div>
       </div>
