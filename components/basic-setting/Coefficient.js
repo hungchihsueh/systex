@@ -598,19 +598,22 @@ const Coefficient = () => {
               "& .MuiDataGrid-columnSeparator": {
                 display: "none",
               },
-              "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                {
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  textAlign: "center",
-                },
+              "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                minHeight: "100px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+                whiteSpace: "normal",
+              },
             }}>
             <DataGrid
               rows={tables[activeTab].rows}
               columns={tables[activeTab].columns}
               pageSize={5}
               rowsPerPageOptions={[5]}
+              // getRowHeight={() => "auto"}
+              // getEstimatedRowHeight={() => 150}
             />
           </Box>
         </div>

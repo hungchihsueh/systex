@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 const columns = [
@@ -75,11 +75,52 @@ const rows = [
     usage: 35,
     unit: "公斤",
     totalCarbon: "0.233285984 KgCO2e",
-    setting:1
+    setting: 1,
+  },
+  {
+    id: 2,
+    name: "1號鍋爐",
+    month: "1月",
+    category: "自產煤",
+    usage: 35,
+    unit: "公斤",
+    totalCarbon: "0.233285984 KgCO2e",
+    setting: 1,
+  },
+  {
+    id: 3,
+    name: "1號鍋爐",
+    month: "1月",
+    category: "自產煤",
+    usage: 35,
+    unit: "公斤",
+    totalCarbon: "0.233285984 KgCO2e",
+    setting: 1,
+  },
+  {
+    id: 4,
+    name: "1號鍋爐",
+    month: "1月",
+    category: "自產煤",
+    usage: 35,
+    unit: "公斤",
+    totalCarbon: "0.233285984 KgCO2e",
+    setting: 1,
+  },
+  {
+    id: 5,
+    name: "1號鍋爐",
+    month: "1月",
+    category: "自產煤",
+    usage: 35,
+    unit: "公斤",
+    totalCarbon: "0.233285984 KgCO2e",
+    setting: 1,
   },
 ];
 
 const CatOne = () => {
+  // const[]
   return (
     <div className="h-full">
       <div className="flex justify-between items-start mb-6">
@@ -94,7 +135,7 @@ const CatOne = () => {
       </div>
       <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
         <div className="w-full py-4 px-8 border-b border-[#4DA7B0]">
-          <Image />煤
+          {/* <Image /> */}煤
         </div>
         <div className="h-full p-7">
           <div className="mb-5 flex justify-between items-center">
@@ -112,43 +153,86 @@ const CatOne = () => {
               </button>
             </div>
           </div>
-          <div className="h-full">
-            <Box
-              sx={{
-                height: 500,
-                width: "100%",
-                "& .MuiDataGrid-columnSeparator": {
-                  display: "none",
-                },
-                "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                  {
+          <div className="flex h-full">
+            <div className="flex-grow">
+              <Box
+                sx={{
+                  height: 600,
+                  "& .MuiDataGrid-columnSeparator": {
+                    display: "none",
+                  },
+                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                    {
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  "& .table-header": {
+                    // bgcolor: "#ACC2C180",
+                    borderColor: "white",
+                    borderWidth: 1,
+                  },
+                  "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                    bgcolor: "#ACC2C180",
+                    color: "#467980",
+                    fontWeight: "600",
+                    fontSize: "16px",
+                  },
+                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                    {
+                      backgroundColor: "#A3A5BF1A",
+                    },
+                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                    {
+                      backgroundColor: "##A3A5BF33",
+                    },
+                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                    padding: "14px",
+                    minHeight: "100px",
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
                     textAlign: "center",
+                    whiteSpace: "normal",
                   },
-                "& .table-header": {
-                  bgcolor: "#ACC2C180",
-                },
-                "& .MuiDataGrid-columnHeaderTitleContainer:has(.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root)":
-                  {
-                    bgcolor: "#ACC2C180",
-                  },
-              }}>
-              <DataGrid
-                rows={rows}
-                columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                checkboxSelection
-                disableSelectionOnClick
-              />
-            </Box>
+                }}>
+                <DataGrid
+                  rows={rows}
+                  columns={columns}
+                  pageSize={5}
+                  rowsPerPageOptions={[5]}
+                  checkboxSelection
+                  disableSelectionOnClick
+                  getRowHeight={() => "auto"}
+                  // getEstimatedRowHeight={() => 150}
+                />
+              </Box>
+            </div>
           </div>
+
+          <div className="text-sm my-3">
+            <span className="text-[#EB5757]">*</span>
+            <span>上傳附件資料</span>
+            <span className="text-[#EB5757] text-xs">
+              (支援格式JPG、PDF檔案格式)
+            </span>
+          </div>
+          <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+            <Image
+              width={20}
+              height={20}
+              alt=""
+              src="/icon/doc-upload.svg"
+              className="mr-2 brightness-200"
+            />
+            查詢
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default CatOne
+export default CatOne;

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import FillPopup from "./popup/FillPopup";
+import Popup from "../popup/Popup"
+
 const source1 = [
   "煤",
   "汽油",
@@ -19,14 +22,7 @@ const anthropogenicGas = [
   "化糞池(工時)",
   "冷媒設備",
 ];
-const landUseGas = [
-  "林地",
-  "農地",
-  "牧草地",
-  "濕地",
-  "居留地",
-  "其他土地",
-];
+const landUseGas = ["林地", "農地", "牧草地", "濕地", "居留地", "其他土地"];
 const electricity = [
   "電力",
   "自用電力",
@@ -70,6 +66,9 @@ const IdentificationOfEmissionSources = () => {
   const [selectOrgGas, setSelectOrgGas] = useState([]);
   const [selectProduct, setSelectProduct] = useState([]);
   const [selectOther, setSelectOther] = useState([]);
+  // popup
+  const [showWarning, setShowWarning] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   // template
   return (
     <div>
@@ -456,10 +455,19 @@ const IdentificationOfEmissionSources = () => {
         <button className="py-2 px-8 rounded-md border border-[#23AFA4] text-[#23AFA4]">
           取消
         </button>
-        <button className="py-2 px-8 rounded-md border border-[#23AFA4] bg-[#23AFA4] text-white">
+        <button className="py-2 px-8 rounded-md border border-[#23AFA4] bg-[#23AFA4] text-white" onClick={()=>{setShowWarning(TEMPORARY_REDIRECT_STATUS);}}>
           儲存資料
         </button>
       </div>
+      {showWarning && (
+        <FillPopup
+          setShowWarning={setShowWarning}
+          setShowSuccess={setShowSuccess}
+        />
+      )}
+      {showSuccess && (
+        <Popup img={"/icon/white-success.svg"} text="資料新增成功" />
+      )}
     </div>
   );
 };

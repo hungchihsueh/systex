@@ -9,7 +9,7 @@ const Ad = () => {
           消息管理設定
         </div>
       </div>
-      <div className="flex justify-start items-center mb-12">
+      <div className="flex justify-start items-center ">
         <label htmlFor="adCount" className="mr-2">
           首頁最多顯示廣告:
         </label>
@@ -78,7 +78,7 @@ const Ad = () => {
         <div className="flex justify-center items-center p-3 border border-white bg-[#A3A5BF1A]">
           <input
             type="number"
-            value={1}
+            defaultValue={1}
             className="w-1/2 aspect-square rounded-md"
             style={{ apperance: "textfield" }}
           />
@@ -107,88 +107,100 @@ const Ad = () => {
       </div>
 
       {/* popup */}
-      <div className="w-screen h-screen bg-black/50 fixed top-0 left-0 grid place-content-center">
-        <div className="w-[50vw] h-[50vh] bg-white rounded-lg">
-          <div className="py-4 px-6 text-[#333] text-xl font-bold border-b border-[#E0E0E0]">
-            新增消息
-          </div>
-          <div className="py-5 px-6 w-full grid grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="" className="block font-bold text-[#333] mb-2">
-                <span className="text-[#EB5757]">*</span>名稱檔名：
-              </label>
-              <input
-                type="text"
-                name=""
-                id=""
-                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
-              />
+      {isEdit && (
+        <div className="w-screen h-screen bg-black/50 fixed top-0 left-0 grid place-content-center">
+          <div className="w-[50vw]  bg-white rounded-lg">
+            <div className="py-4 px-6 text-[#333] text-xl font-bold border-b border-[#E0E0E0]">
+              新增消息
             </div>
-            <div>
-              <label htmlFor="" className="block font-bold text-[#333] mb-2">
-                <span className="text-[#EB5757]">*</span>使用狀態：
-              </label>
-              <input
-                type="text"
-                name=""
-                id=""
-                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
-              />
+            <div className="py-5 px-6 w-full grid grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                  <span className="text-[#EB5757]">*</span>名稱檔名：
+                </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+                />
+              </div>
+              <div>
+                <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                  <span className="text-[#EB5757]">*</span>使用狀態：
+                </label>
+                <select
+                  name=""
+                  id=""
+                  className="block p-2 border border-[#4DA7B0] rounded-lg w-full">
+                  <option value="">請選擇當前該則顯示狀態</option>
+                  <option value="">上架顯示</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                  跳轉連結：
+                </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+                />
+              </div>
+              <div>
+                <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                  連結開啟：
+                </label>
+                <select
+                  name=""
+                  id=""
+                  className="block p-2 border border-[#4DA7B0] rounded-lg w-full">
+                  <option value="">講選擇連结跳轉顯示方式</option>
+                  <option value="">直接開啟</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                  <span className="text-[#EB5757]">*</span>圖片上傳：
+                </label>
+                <input
+                  type="file"
+                  name=""
+                  id=""
+                  className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+                />
+              </div>
+              <button className="self-end w-fit h-fit flex justify-center items-center rounded-lg text-white font-semibold py-2 px-5 bg-[#575979]">
+                <Image
+                  alt=""
+                  width={20}
+                  height={20}
+                  src={"/icon/doc-upload.svg"}
+                  className="brightness-200 mr-2"
+                />
+                點擊上傳
+              </button>
+              <div className="mt-12 col-span-2 flex justify-center items-center gap-6">
+                <button
+                  className="border border-[#23AFA4] text-[#23AFA4] font-semibold rounded-lg px-8 py-2"
+                  onClick={() => {
+                    setIsEdit(false);
+                  }}>
+                  取消
+                </button>
+                <button
+                  className="border border-transparent bg-[#23AFA4] text-white font-semibold rounded-lg px-8 py-2"
+                  onClick={() => {
+                    setIsEdit(false);
+                  }}>
+                  確認
+                </button>
+              </div>
             </div>
-            <div>
-              <label htmlFor="" className="block font-bold text-[#333] mb-2">
-                跳轉連結：
-              </label>
-              <input
-                type="text"
-                name=""
-                id=""
-                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
-              />
-            </div>
-            <div>
-              <label htmlFor="" className="block font-bold text-[#333] mb-2">
-                連結開啟：
-              </label>
-              <input
-                type="text"
-                name=""
-                id=""
-                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
-              />
-            </div>
-            <div>
-              <label htmlFor="" className="block font-bold text-[#333] mb-2">
-                <span className="text-[#EB5757]">*</span>圖片上傳：
-              </label>
-              <input
-                type="file"
-                name=""
-                id=""
-                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
-              />
-            </div>
-            <button className="self-end w-fit h-fit flex justify-center items-center rounded-lg text-white font-semibold py-2 px-5 bg-[#575979]">
-              <Image
-                alt=""
-                width={20}
-                height={20}
-                src={"/icon/doc-upload.svg"}
-                className="brightness-200 mr-2"
-              />
-              點擊上傳
-            </button>
-          </div>
-          <div className="w-full flex justify-center items-center gap-6">
-            <button className="border border-[#23AFA4] text-[#23AFA4] font-semibold rounded-lg px-8 py-2">
-              取消
-            </button>
-            <button className="border border-transparent bg-[#23AFA4] text-white font-semibold rounded-lg px-8 py-2">
-              確認
-            </button>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

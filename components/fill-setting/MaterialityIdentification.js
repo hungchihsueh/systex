@@ -1,5 +1,7 @@
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
+import FillPopup from "./popup/FillPopup";
+import Popup from "../popup/Popup";
 const CatTitle = ({ text }) => {
   return (
     <div className="col-span-12 text-white bg-[#2291C5] border border-white p-2 text-center flex justify-center items-center font-bold">
@@ -26,6 +28,9 @@ const Cell = ({ cat, data }) => {
   );
 };
 const MaterialityIdentification = () => {
+  // popup
+  const [showWarning, setShowWarning] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   return (
     <div>
       <div className="flex justify-between items-start mb-6">
@@ -163,10 +168,19 @@ const MaterialityIdentification = () => {
         <button className="py-2 px-8 rounded-md border border-[#23AFA4] text-[#23AFA4]">
           取消
         </button>
-        <button className="py-2 px-8 rounded-md border border-[#23AFA4] bg-[#23AFA4] text-white">
+        <button className="py-2 px-8 rounded-md border border-[#23AFA4] bg-[#23AFA4] text-white" onClick={()=>{setShowWarning(true);}}>
           儲存資料
         </button>
       </div>
+      {showWarning && (
+        <FillPopup
+          setShowWarning={setShowWarning}
+          setShowSuccess={setShowSuccess}
+        />
+      )}
+      {showSuccess && (
+        <Popup img={"/icon/white-success.svg"} text="資料新增成功" />
+      )}
     </div>
   );
 };
