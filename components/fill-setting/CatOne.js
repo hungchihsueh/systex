@@ -133,103 +133,1794 @@ const CatOne = () => {
         <span>1.1 固定式燃料源</span>
         <Image width={20} height={20} alt="" src={"/icon/dropdown-arrow.svg"} />
       </div>
-      <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
-        <div className="w-full py-4 px-8 border-b border-[#4DA7B0]">
-          {/* <Image /> */}煤
-        </div>
-        <div className="h-full p-7">
-          <div className="mb-5 flex justify-between items-center">
-            <div>
-              <span className="text-red-500 mr-1">*</span>當年度使用項目
-            </div>
-            <div className="flex justify-center items-center gap-4 mb-5">
-              <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
-                <Image width={24} height={24} alt="" src={"/icon/delete.svg"} />
-                批量刪除
-              </button>
-              <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
-                <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
-                新增項目
-              </button>
-            </div>
+      {/* content */}
+      <div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/煤.svg"}
+              className="mr-2"
+            />
+            煤
           </div>
-          <div className="flex h-full">
-            <div className="flex-grow">
-              <Box
-                sx={{
-                  height: 600,
-                  "& .MuiDataGrid-columnSeparator": {
-                    display: "none",
-                  },
-                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
-                    {
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
                       width: "100%",
                       display: "flex",
                       justifyContent: "center",
                       textAlign: "center",
                       whiteSpace: "normal",
                     },
-                  "& .table-header": {
-                    // bgcolor: "#ACC2C180",
-                    borderColor: "white",
-                    borderWidth: 1,
-                  },
-                  "& .css-f3jnds-MuiDataGrid-columnHeaders": {
-                    bgcolor: "#ACC2C180",
-                    color: "#467980",
-                    fontWeight: "600",
-                    fontSize: "16px",
-                  },
-                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
-                    {
-                      backgroundColor: "#A3A5BF1A",
-                    },
-                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
-                    {
-                      backgroundColor: "##A3A5BF33",
-                    },
-                  "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
-                    padding: "14px",
-                    minHeight: "100px",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    whiteSpace: "normal",
-                  },
-                }}>
-                <DataGrid
-                  rows={rows}
-                  columns={columns}
-                  pageSize={5}
-                  rowsPerPageOptions={[5]}
-                  checkboxSelection
-                  disableSelectionOnClick
-                  getRowHeight={() => "auto"}
-                  // getEstimatedRowHeight={() => 150}
-                />
-              </Box>
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
             </div>
-          </div>
 
-          <div className="text-sm my-3">
-            <span className="text-[#EB5757]">*</span>
-            <span>上傳附件資料</span>
-            <span className="text-[#EB5757] text-xs">
-              (支援格式JPG、PDF檔案格式)
-            </span>
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
           </div>
-          <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
-            <Image
-              width={20}
-              height={20}
-              alt=""
-              src="/icon/doc-upload.svg"
-              className="mr-2 brightness-200"
-            />
-            查詢
-          </button>
         </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/汽油.svg"}
+              className="mr-2"
+            />
+            汽油
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/柴油.svg"}
+              className="mr-2"
+            />
+            柴油
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/重油.svg"}
+              className="mr-2"
+            />
+            重油
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/液化石油氣.svg"}
+              className="mr-2"
+            />
+            液化石油氣
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/天然氣.svg"}
+              className="mr-2"
+            />
+            天然氣
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/其他燃料.svg"}
+              className="mr-2"
+            />
+            其他燃料
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/其他燃料油.svg"}
+              className="mr-2"
+            />
+            其他燃料油
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/其他燃料氣.svg"}
+              className="mr-2"
+            />
+            其他燃料氣
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/生質燃料.svg"}
+              className="mr-2"
+            />
+            生質燃料
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* accordion */}
+      <div className="w-full mb-1 p-3 bg-[#4DA7B0] text-white text-base flex justify-start items-center gap-2">
+        <span>1.2 移動式燃料源</span>
+        <Image width={20} height={20} alt="" src={"/icon/dropdown-arrow.svg"} />
+      </div>
+      {/* content */}
+      <div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/汽油.svg"}
+              className="mr-2"
+            />
+            汽油
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/柴油.svg"}
+              className="mr-2"
+            />
+            柴油
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/電力.svg"}
+              className="mr-2"
+            />
+            電力
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/其他燃料.svg"}
+              className="mr-2"
+            />
+            其他燃料
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* accordion */}
+      <div className="w-full mb-1 p-3 bg-[#4DA7B0] text-white text-base flex justify-start items-center gap-2">
+        <span>1.3 產業過程之直接排放</span>
+        <Image width={20} height={20} alt="" src={"/icon/dropdown-arrow.svg"} />
+      </div>
+      {/* content */}
+      <div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/乙炔.svg"}
+              className="mr-2"
+            />
+            乙炔
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+        <div className="m-[10px] border border-[#4DA7B0] rounded-lg overflow-hidden">
+          <div className="flex justify-start items-center w-full py-4 px-8 border-b text-[#4DA7B0] font-semibold border-[#4DA7B0]">
+            <Image
+              alt=""
+              width={24}
+              height={24}
+              src={"/icon/滲碳方式進行金屬.svg"}
+              className="mr-2"
+            />
+            滲碳方式進行金屬及製品表面處理
+          </div>
+          <div className="h-full p-7">
+            <div className="mb-5 flex justify-between items-center">
+              <div>
+                <span className="text-red-500 mr-1">*</span>當年度使用項目
+              </div>
+              <div className="flex justify-center items-center gap-4 mb-5">
+                <button className="py-2 px-5 rounded-lg text-white bg-[#EB5757] flex justify-center items-center gap-1 font-semibold">
+                  <Image
+                    width={24}
+                    height={24}
+                    alt=""
+                    src={"/icon/delete.svg"}
+                  />
+                  批量刪除
+                </button>
+                <button className="py-2 px-5 rounded-lg text-white bg-[#0075AC] flex justify-center items-center gap-1 font-semibold">
+                  <Image width={24} height={24} alt="" src={"/icon/add.svg"} />
+                  新增項目
+                </button>
+              </div>
+            </div>
+            <div className="flex h-full">
+              <div className="flex-grow">
+                <Box
+                  sx={{
+                    height: 500,
+                    "& .MuiDataGrid-columnSeparator": {
+                      display: "none",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell":
+                      {
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        whiteSpace: "normal",
+                      },
+                    "& .table-header": {
+                      // bgcolor: "#ACC2C180",
+                      borderColor: "white",
+                      borderWidth: 1,
+                    },
+                    "& .css-f3jnds-MuiDataGrid-columnHeaders": {
+                      bgcolor: "#ACC2C180",
+                      color: "#467980",
+                      fontWeight: "600",
+                      fontSize: "16px",
+                    },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(odd)":
+                      {
+                        backgroundColor: "#A3A5BF1A",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-row:nth-child(even)":
+                      {
+                        backgroundColor: "##A3A5BF33",
+                      },
+                    "& .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-cell": {
+                      padding: "14px",
+                      minHeight: "100px",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      whiteSpace: "normal",
+                    },
+                  }}>
+                  <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    getRowHeight={() => "auto"}
+                    // getEstimatedRowHeight={() => 150}
+                  />
+                </Box>
+              </div>
+            </div>
+
+            <div className="text-sm my-3">
+              <span className="text-[#EB5757]">*</span>
+              <span>上傳附件資料</span>
+              <span className="text-[#EB5757] text-xs">
+                (支援格式JPG、PDF檔案格式)
+              </span>
+            </div>
+            <button className="flex justify-center items-center rounded-xl bg-[#575979] text-white text-md font-medium py-2 px-5 whitespace-nowrap">
+              <Image
+                width={20}
+                height={20}
+                alt=""
+                src="/icon/doc-upload.svg"
+                className="mr-2 brightness-200"
+              />
+              點擊上傳
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="py-6 w-full flex justify-center items-center gap-5">
+        <button
+          className={`rounded-md text-[#289D9B] py-3 px-16 border border-[#289D9B] bg-white`}>
+          取消
+        </button>
+        <button className="rounded-md text-white py-3 px-16 bg-gradient-to-b from-[#63C2CF] to-[#199694]">
+          儲存
+        </button>
       </div>
     </div>
   );
