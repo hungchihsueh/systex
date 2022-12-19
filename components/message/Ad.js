@@ -1,6 +1,7 @@
-import React from 'react'
-import Image from 'next/image';
+import React, { useState } from "react";
+import Image from "next/image";
 const Ad = () => {
+  const [isEdit, setIsEdit] = useState(false);
   return (
     <div>
       <div className="flex justify-between items-start mb-8">
@@ -95,13 +96,84 @@ const Ad = () => {
           上架
         </div>
         <div className="flex justify-center items-center p-3 border border-white bg-[#A3A5BF1A]">
-          <button className="bg-[#0075AC] p-1 rounded-md">
+          <button
+            className="bg-[#0075AC] p-1 rounded-md"
+            onClick={() => {
+              setIsEdit(true);
+            }}>
             <Image width={20} height={20} src={"/icon/edit.svg"} alt="" />
           </button>
         </div>
       </div>
+
+      {/* popup */}
+      <div className="w-screen h-screen bg-black/50 fixed top-0 left-0 grid place-content-center">
+        <div className="w-[50vw] h-[50vh] bg-white rounded-lg">
+          <div className="py-4 px-6 text-[#333] text-xl font-bold border-b border-[#E0E0E0]">
+            新增消息
+          </div>
+          <div className="py-5 px-6 w-full grid grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                <span className="text-[#EB5757]">*</span>名稱檔名：
+              </label>
+              <input
+                type="text"
+                name=""
+                id=""
+                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                <span className="text-[#EB5757]">*</span>使用狀態：
+              </label>
+              <input
+                type="text"
+                name=""
+                id=""
+                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                跳轉連結：
+              </label>
+              <input
+                type="text"
+                name=""
+                id=""
+                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                連結開啟：
+              </label>
+              <input
+                type="text"
+                name=""
+                id=""
+                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="" className="block font-bold text-[#333] mb-2">
+                <span className="text-[#EB5757]">*</span>圖片上傳：
+              </label>
+              <input
+                type="file"
+                name=""
+                id=""
+                className="block p-2 border border-[#4DA7B0] rounded-lg w-full"
+              />
+            </div>
+            <button className="flex justify-center items-center rounded-lg text-white font-bold py-2 px-5 bg-[#FFC700]"><Image alt=""/> </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default Ad
+export default Ad;
