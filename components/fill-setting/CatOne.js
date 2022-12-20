@@ -2580,10 +2580,10 @@ const CatOne = () => {
               alt=""
               width={24}
               height={24}
-              src={"/icon/冷媒設備.svg"}
+              src={"/icon/冷煤設備.svg"}
               className="mr-2"
             />
-            冷媒設備
+            冷煤設備
           </div>
           <div className="h-full p-7">
             <div className="mb-5 flex justify-between items-center">
