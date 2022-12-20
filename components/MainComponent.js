@@ -40,7 +40,6 @@ const MainComponent = () => {
       {activeTab == "填報設定" && activeItem === 5 && <CatFour />}
       {activeTab == "填報設定" && activeItem === 6 && <CatFive />}
       {activeTab == "填報設定" && activeItem === 7 && <CatSix />}
-      {activeTab == "填報設定" && activeItem === 7 && <CatSix />}
       {activeTab == "程序清冊" && activeItem !== 2 && <InventoryList />}
       {activeTab == "程序清冊" && activeItem !== 3 && <EpaList />}
       {activeTab == "權限管理" && activeItem === 0 && <Role />}
